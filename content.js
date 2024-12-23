@@ -41,7 +41,7 @@ function replaceKeywordsInNode(node) {
   if (!keywordPairs || isInInputField(node)) return;
 
   const regexMap = Object.entries(keywordPairs).map(([original, replacement]) => ({
-    regex: new RegExp(`\\b${original}\\b`, "gi"),
+      regex: new RegExp(`^${original}$`, "gi"),
     replacement,
   }));
 
@@ -100,7 +100,7 @@ function handleInputEvent(e) {
 
     const text = inputNode.value;
     const regexMap = Object.entries(keywordPairs).map(([original, replacement]) => ({
-      regex: new RegExp(`\\b${original}\\b`, "gi"),
+        regex: new RegExp(`^${original}$`, "gi"),
       replacement,
     }));
 
